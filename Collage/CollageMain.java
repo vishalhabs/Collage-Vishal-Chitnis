@@ -22,6 +22,7 @@ public class CollageMain
         Picture zucc7= new Picture("images/zucc.png");
         Picture zucc8= new Picture("images/zucc.png");
         Picture zucc9= new Picture("images/zucc.png");
+        Picture zucc10= new Picture("images/zucc.png");
         zucc1.lizardIFY();
         temp.copyZucc(zucc1, 0, 0);
         zucc2.mirrorVertical();
@@ -39,9 +40,9 @@ public class CollageMain
         zucc9.all(zucc9);
         temp.copyZucc(zucc9, 950, 1068);
         zucc8.mirrorVerticalFull();
+        zucc8.sheparFairey();
         zucc8.recursivePasteLeft(zucc8, 2);
         temp.copyZucc(zucc8, 1900, 1068);
-        
         temp.explore();
         temp.write("images//FinalImage.jpg");
     }

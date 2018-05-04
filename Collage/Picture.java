@@ -466,6 +466,74 @@ public  void copySmall(String sf, int x, int y)
         lizardIFY();
         negativeZucc();
     }
+    
+    public void sheparFairey()
+    {
+        Pixel[] pixels_arr = getPixels();
+        int value, total=0, b, s, interval;
+        double avg;
+        for (Pixel spot: pixels_arr)
+        {
+            value = spot.getRed();
+            total = total + value;
+            value = spot.getBlue();
+            total = total + value;
+            value = spot.getGreen();
+            total = total + value;
+            avg = total / 3;
+            spot.setRed((int)avg);
+            spot.setBlue((int)avg);
+            spot.setGreen((int)avg);
+            total = 0;
+        }
+        
+        b = -1;
+        s = 256;
+        
+        for (Pixel spot: pixels_arr)
+        {
+            value = spot.getRed();
+            if (value > b)
+            {
+                b = value;
+            }
+            if (value < s)
+            {
+                s = value;
+            }
+        }
+        
+        interval = (b-s)/4;
+        
+        for (Pixel spot: pixels_arr)
+        {
+            value = spot.getRed();
+            if (value <= interval + 15)
+            {
+                spot.setRed(0);
+                spot.setBlue(47);
+                spot.setGreen(0);
+            }
+            if (value <= (interval*2) && value > interval + 15)
+            {
+                spot.setRed(220);
+                spot.setBlue(50);
+                spot.setGreen(50);
+            }
+            if (value <= ((interval*3)-30) && value > (interval*2))
+            {
+                spot.setRed(71);
+                spot.setBlue(71);
+                spot.setGreen(213);
+            }
+            if (value > ((interval*3)-30))
+            {
+                spot.setRed(158);
+                spot.setBlue(211);
+                spot.setGreen(215);
+            }
+        }
+    }
   
   
   
